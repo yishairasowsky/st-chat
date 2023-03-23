@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 st.header("Streamlit Chat - Demo")
-st.markdown("[Github](https://github.com/ai-yash/st-chat)")
+st.markdown("[Github](https://github.com/yishairasowsky/st-chat)")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
