@@ -7,9 +7,6 @@ st.set_page_config(
     page_icon=":robot:"
 )
 
-API_URL = "https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
-headers = {"Authorization": st.secrets['api_key']}
-
 st.header("Streamlit Chat - Demo")
 st.markdown("[Github](https://github.com/ai-yash/st-chat)")
 
@@ -20,8 +17,9 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
+    response = payload
+    response['generated_text'] = 'this is the generated text'
+    return response
 
 def get_text():
     input_text = st.text_input("You: ","Hello, how are you?", key="input")
